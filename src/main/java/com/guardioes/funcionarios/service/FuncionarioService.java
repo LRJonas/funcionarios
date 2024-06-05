@@ -22,4 +22,20 @@ public class FuncionarioService {
         }
         return funcionarioRepository.save(funcionario);
     }
+
+    public Funcionario buscarPorId(Long id) {
+        try{
+            return funcionarioRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Funcionário não encontrado"));
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Funcionário não encontrado");
+        }
+    }
+
+    public Funcionario buscarPorCpf(String cpf) {
+        try{
+            return (Funcionario) funcionarioRepository.findByCpf(cpf).orElseThrow(() -> new IllegalArgumentException("Funcionário não encontrado"));
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Funcionário não encontrado");
+        }
+    }
 }

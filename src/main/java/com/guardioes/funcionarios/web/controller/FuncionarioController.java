@@ -19,4 +19,16 @@ public class FuncionarioController {
         funcionarioService.cadastrar(funcionario);
         return ResponseEntity.status(HttpStatus.CREATED).body(funcionario);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Funcionario> buscarPorId(@PathVariable Long id) {
+
+        return ResponseEntity.ok(funcionarioService.buscarPorId(id));
+    }
+
+    @GetMapping("/cpf/{cpf}")
+    public ResponseEntity<Funcionario> buscarPorCpf(@PathVariable String cpf) {
+
+        return ResponseEntity.ok(funcionarioService.buscarPorCpf(cpf));
+    }
 }
