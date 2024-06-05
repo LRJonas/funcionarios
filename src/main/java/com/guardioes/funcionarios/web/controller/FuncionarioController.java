@@ -1,11 +1,11 @@
-package web.controller;
+package com.guardioes.funcionarios.web.controller;
 
-import entity.Funcionario;
+import com.guardioes.funcionarios.entity.Funcionario;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.FuncionarioService;
+import com.guardioes.funcionarios.service.FuncionarioService;
 
 @RequiredArgsConstructor
 @RestController
@@ -19,6 +19,4 @@ public class FuncionarioController {
         funcionarioService.cadastrar(funcionario);
         return ResponseEntity.status(HttpStatus.CREATED).body(funcionario);
     }
-
-
 }

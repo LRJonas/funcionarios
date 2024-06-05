@@ -1,6 +1,6 @@
-package repository;
+package com.guardioes.funcionarios.repository;
 
-import entity.Funcionario;
+import com.guardioes.funcionarios.entity.Funcionario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

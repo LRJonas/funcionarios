@@ -1,9 +1,9 @@
-package service;
+package com.guardioes.funcionarios.service;
 
-import entity.Funcionario;
+import com.guardioes.funcionarios.entity.Funcionario;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import repository.FuncionarioRepository;
+import com.guardioes.funcionarios.repository.FuncionarioRepository;
 
 @Service
 @RequiredArgsConstructor
