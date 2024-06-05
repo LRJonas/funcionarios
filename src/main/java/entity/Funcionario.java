@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
 
-import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 @Entity
@@ -20,17 +19,19 @@ public class Funcionario implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank(message = "Nome é obrigatório")
+
+    @Column(nullable = false)
     private String nome;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     @CPF
-    @NotBlank(message = "CPF é obrigatório")
     private String cpf;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Cargo cargo;
 
+    private Boolean ativo = true;
 
     public enum Cargo {
         GERENTE,
