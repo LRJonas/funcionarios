@@ -1,5 +1,6 @@
 package com.guardioes.funcionarios.exception;
 
+import com.guardioes.funcionarios.exceptions.ExcecaoCampoForaEnum;
 import com.guardioes.funcionarios.exceptions.ExcecaoCpfJaCadastrado;
 import com.guardioes.funcionarios.exceptions.ExcecaoFuncionarioNaoEncontrado;
 import jakarta.servlet.http.HttpServletRequest;
@@ -30,5 +31,14 @@ public class ExcecaoManipulador extends ResponseEntityExceptionHandler {
                 .status(HttpStatus.NOT_FOUND)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(new MensagemErro(request, HttpStatus.NOT_FOUND, ex.getMessage()));
+    }
+
+    @ExceptionHandler(ExcecaoCampoForaEnum.class)
+    public final ResponseEntity<MensagemErro> excecaoCampoForaEnum(ExcecaoCampoForaEnum ex, HttpServletRequest request) {
+        log.error("Erro na API", ex);
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(new MensagemErro(request, HttpStatus.BAD_REQUEST, ex.getMessage()));
     }
 }
