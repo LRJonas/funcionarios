@@ -4,23 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cf25507-94ac-4f24-8645-f4590fc73adf" name="Changes" comment="feat: Microsserviço de funcionários adicionado ao Eureka" />
+    <list default="true" id="4cf25507-94ac-4f24-8645-f4590fc73adf" name="Changes" comment="feat: Microsserviço de funcionários adicionado ao Eureka">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/guardioes/funcionarios/exception/ExcecaoManipulador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/guardioes/funcionarios/exception/MensagemErro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/guardioes/funcionarios/exceptions/ExcecaoCpfJaCadastrado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/guardioes/funcionarios/exceptions/ExcecaoFuncionarioNaoEncontrado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funcionarios.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/funcionarios.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guardioes/funcionarios/service/FuncionarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guardioes/funcionarios/service/FuncionarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/guardioes/funcionarios/service/FuncionarioService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/guardioes/funcionarios/service/FuncionarioService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/guardioes/funcionarios/web/controller/FuncionarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/guardioes/funcionarios/web/controller/FuncionarioController.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="funcionarios/configuracao-eureka" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2hTHW3No38HlSkBPiDDRkEWzUyM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -33,7 +51,9 @@
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.FuncionariosApplication.executor": "Run",
+    "git-widget-placeholder": "funcionarios/adicionando-excecoes",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/lucasoff/Downloads/msfuncionarios/funcionarios",
     "node.js.detected.package.eslint": "true",
