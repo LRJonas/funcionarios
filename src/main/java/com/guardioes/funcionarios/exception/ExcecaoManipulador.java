@@ -3,6 +3,7 @@ package com.guardioes.funcionarios.exception;
 import com.guardioes.funcionarios.exceptions.ExcecaoCampoForaEnum;
 import com.guardioes.funcionarios.exceptions.ExcecaoCpfJaCadastrado;
 import com.guardioes.funcionarios.exceptions.ExcecaoFuncionarioNaoEncontrado;
+import com.guardioes.funcionarios.exceptions.ExcecaoCpfInvalido;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class ExcecaoManipulador extends ResponseEntityExceptionHandler {
     @ExceptionHandler(ExcecaoCpfJaCadastrado.class)
     public final ResponseEntity<MensagemErro> excecaoCpfDuplicado(ExcecaoCpfJaCadastrado ex, HttpServletRequest request) {
-        log.error("Erro na API", ex);
+        log.error("CPF já cadastrado", ex);
         return ResponseEntity
                 .status(HttpStatus.CONFLICT)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -35,7 +36,16 @@ public class ExcecaoManipulador extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(ExcecaoCampoForaEnum.class)
     public final ResponseEntity<MensagemErro> excecaoCampoForaEnum(ExcecaoCampoForaEnum ex, HttpServletRequest request) {
-        log.error("Erro na API", ex);
+        log.error("Cargo inválido", ex);
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(new MensagemErro(request, HttpStatus.BAD_REQUEST, ex.getMessage()));
+    }
+
+    @ExceptionHandler(ExcecaoCpfInvalido.class)
+    public final ResponseEntity<MensagemErro> excecaoIdInvalido(ExcecaoCpfInvalido ex, HttpServletRequest request) {
+        log.error("ID inválido", ex);
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .contentType(MediaType.APPLICATION_JSON)
