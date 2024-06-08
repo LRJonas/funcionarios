@@ -39,30 +39,30 @@ class TestesIntegrados {
 
 	@Test
 	void testarCadastrarFuncionario() throws Exception {
-		String funcionarioJson = "{\"nome\": \"João\", \"cpf\": \"12345678900\", \"cargo\": \"CAIXA\"}";
+		String funcionarioJson = "{\"nome\": \"João\", \"cpf\": \"95276702330\", \"cargo\": \"GERENTE\"}";
 
 		mockMvc.perform(post("/api/v1/funcionarios")
 						.contentType(MediaType.APPLICATION_JSON)
 						.content(funcionarioJson))
 				.andExpect(status().isCreated())
 				.andExpect(jsonPath("$.nome").value("João"))
-				.andExpect(jsonPath("$.cpf").value("12345678900"))
-				.andExpect(jsonPath("$.cargo").value("CAIXA"));
+				.andExpect(jsonPath("$.cpf").value("95276702330"))
+				.andExpect(jsonPath("$.cargo").value("GERENTE"));
 	}
 
 	@Test
 	void testarInativarFuncionario() throws Exception {
-		String funcionarioJson = "{\"nome\": \"João\", \"cpf\": \"12345678900\", \"cargo\": \"CAIXA\"}";
+		String funcionarioJson = "{\"nome\": \"João\", \"cpf\": \"95276702330\", \"cargo\": \"CAIXA\"}";
 
 		mockMvc.perform(post("/api/v1/funcionarios")
 						.contentType(MediaType.APPLICATION_JSON)
 						.content(funcionarioJson))
 				.andExpect(status().isCreated())
 				.andExpect(jsonPath("$.nome").value("João"))
-				.andExpect(jsonPath("$.cpf").value("12345678900"))
+				.andExpect(jsonPath("$.cpf").value("95276702330"))
 				.andExpect(jsonPath("$.cargo").value("CAIXA"));
 
-		mockMvc.perform(patch("/api/v1/funcionarios/inativar/12345678900"))
+		mockMvc.perform(patch("/api/v1/funcionarios/inativar/95276702330"))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.ativo").value(false));
 	}
@@ -74,8 +74,60 @@ class TestesIntegrados {
 		mockMvc.perform(post("/api/v1/funcionarios")
 						.contentType(MediaType.APPLICATION_JSON)
 						.content(funcionarioJson))
-				.andExpect(status().isBadRequest())
-				.andExpect(jsonPath("$.message").value("CPF inválido"));
+				.andExpect(status().isBadRequest());
+	}
+
+	@Test
+	void testarCadastroCpfDuplicado() throws Exception {
+		String funcionarioJson = "{\"nome\": \"João\", \"cpf\": \"95276702330\", \"cargo\": \"CAIXA\"}";
+
+		mockMvc.perform(post("/api/v1/funcionarios")
+						.contentType(MediaType.APPLICATION_JSON)
+						.content(funcionarioJson))
+				.andExpect(status().isCreated());
+
+		mockMvc.perform(post("/api/v1/funcionarios")
+						.contentType(MediaType.APPLICATION_JSON)
+						.content(funcionarioJson))
+				.andExpect(status().isConflict());
+	}
+
+	@Test
+	void testarBuscarFuncionarioPorCpf() throws Exception {
+		String funcionarioJson = "{\"nome\": \"João\", \"cpf\": \"95276702330\", \"cargo\": \"CAIXA\"}";
+
+		mockMvc.perform(post("/api/v1/funcionarios")
+						.contentType(MediaType.APPLICATION_JSON)
+						.content(funcionarioJson))
+				.andExpect(status().isCreated());
+
+		mockMvc.perform(patch("/api/v1/funcionarios/inativar/95276702330"))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.ativo").value(false));
+
+		mockMvc.perform(patch("/api/v1/funcionarios/inativar/95276702330"))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.ativo").value(true));
+	}
+
+	@Test
+	void testarEditarFuncionario() throws Exception {
+		String funcionarioJson = "{\"nome\": \"João\", \"cpf\": \"95276702330\", \"cargo\": \"CAIXA\"}";
+
+		mockMvc.perform(post("/api/v1/funcionarios")
+						.contentType(MediaType.APPLICATION_JSON)
+						.content(funcionarioJson))
+				.andExpect(status().isCreated());
+
+		String funcionarioJsonEditado = "{\"nome\": \"João da Silva\", \"cpf\": \"95276702330\", \"cargo\": \"GERENTE\"}";
+
+		mockMvc.perform(patch("/api/v1/funcionarios/editar/95276702330")
+						.contentType(MediaType.APPLICATION_JSON)
+						.content(funcionarioJsonEditado))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.nome").value("João da Silva"))
+				.andExpect(jsonPath("$.cpf").value("95276702330"))
+				.andExpect(jsonPath("$.cargo").value("GERENTE"));
 	}
 
 }

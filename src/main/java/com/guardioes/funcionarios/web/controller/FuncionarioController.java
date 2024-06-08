@@ -32,7 +32,7 @@ public class FuncionarioController {
             content = @Content(mediaType = "application/json",
                     schema = @Schema(implementation = MensagemErro.class)))
     @PostMapping
-    public ResponseEntity<Funcionario> cadastrar(@Valid @RequestBody Funcionario funcionario) {
+    public ResponseEntity<Funcionario> cadastrar(@Valid @RequestBody Funcionario funcionario) throws Exception {
         funcionarioService.cadastrar(funcionario);
         return ResponseEntity.status(HttpStatus.CREATED).body(funcionario);
     }
@@ -63,8 +63,24 @@ public class FuncionarioController {
     @ApiResponse(responseCode = "400", description = "Requisição inválida",
             content = @Content(mediaType = "application/json",
                     schema = @Schema(implementation = MensagemErro.class)))
-    @PatchMapping("/inativar/{id}")
+    @PatchMapping("/inativar/{cpf}")
     public ResponseEntity<Funcionario> inativarFuncionario(@PathVariable String cpf) {
         return ResponseEntity.ok(funcionarioService.inativar(cpf));
+    }
+
+    @Operation(summary = "Editar funcionário",
+            description = "Endpoint que edita um funcionário.")
+    @ApiResponse(responseCode = "200", description = "Funcionário editado com sucesso!",
+            content = @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = Funcionario.class)))
+    @ApiResponse(responseCode = "404", description = "Funcionário não encontrado",
+            content = @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = MensagemErro.class)))
+    @ApiResponse(responseCode = "400", description = "Requisição inválida",
+            content = @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = MensagemErro.class)))
+    @PatchMapping("/editar/{cpf}")
+    public ResponseEntity<Funcionario> editarFuncionario(@PathVariable String cpf, @Valid @RequestBody Funcionario funcionario) {
+        return ResponseEntity.ok(funcionarioService.editar(cpf, funcionario));
     }
 }

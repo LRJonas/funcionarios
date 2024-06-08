@@ -45,7 +45,7 @@ public class ExcecaoManipulador extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(ExcecaoCpfInvalido.class)
     public final ResponseEntity<MensagemErro> excecaoIdInvalido(ExcecaoCpfInvalido ex, HttpServletRequest request) {
-        log.error("ID inválido", ex);
+        log.error("CPF inválido", ex);
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .contentType(MediaType.APPLICATION_JSON)
