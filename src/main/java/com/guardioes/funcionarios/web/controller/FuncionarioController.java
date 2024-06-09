@@ -2,6 +2,7 @@ package com.guardioes.funcionarios.web.controller;
 
 import com.guardioes.funcionarios.entity.Funcionario;
 import com.guardioes.funcionarios.exception.MensagemErro;
+import com.guardioes.funcionarios.springdoc.SpringDoc;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -16,21 +17,12 @@ import com.guardioes.funcionarios.service.FuncionarioService;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/funcionarios")
-public class FuncionarioController {
+public class FuncionarioController implements SpringDoc {
 
     private final FuncionarioService funcionarioService;
 
-    @Operation(summary = "Cadastrar um novo funcionário",
-            description = "Endpoint que cadastra um novo funcionário.")
-    @ApiResponse(responseCode = "201", description = "Funcionário cadastrado com sucesso!",
-            content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = Funcionario.class)))
-    @ApiResponse(responseCode = "400", description = "Requisição inválida",
-            content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = MensagemErro.class)))
-    @ApiResponse(responseCode = "409", description = "Funcionário já existente",
-            content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = MensagemErro.class)))
+
+    @Override
     @PostMapping
     public ResponseEntity<Funcionario> cadastrar(@Valid @RequestBody Funcionario funcionario) throws Exception {
         funcionarioService.cadastrar(funcionario);
@@ -38,47 +30,20 @@ public class FuncionarioController {
     }
 
 
-    @Operation(summary = "Buscar funcionário por CPF",
-            description = "Endpoint que busca um funcionário por CPF.")
-    @ApiResponse(responseCode = "200", description = "Funcionário encontrado com sucesso!",
-            content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = Funcionario.class)))
-    @ApiResponse(responseCode = "404", description = "Funcionário não encontrado",
-            content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = MensagemErro.class)))
+    @Override
     @GetMapping("/cpf/{cpf}")
     public ResponseEntity<Funcionario> buscarPorCpf(@PathVariable String cpf) {
 
         return ResponseEntity.ok(funcionarioService.buscarPorCpf(cpf));
     }
 
-    @Operation(summary = "Inativar funcionário",
-            description = "Endpoint que inativa um funcionário.")
-    @ApiResponse(responseCode = "200", description = "Funcionário inativado com sucesso!",
-            content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = Funcionario.class)))
-    @ApiResponse(responseCode = "404", description = "Funcionário não encontrado",
-            content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = MensagemErro.class)))
-    @ApiResponse(responseCode = "400", description = "Requisição inválida",
-            content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = MensagemErro.class)))
+    @Override
     @PatchMapping("/inativar/{cpf}")
     public ResponseEntity<Funcionario> inativarFuncionario(@PathVariable String cpf) {
         return ResponseEntity.ok(funcionarioService.inativar(cpf));
     }
 
-    @Operation(summary = "Editar funcionário",
-            description = "Endpoint que edita um funcionário.")
-    @ApiResponse(responseCode = "200", description = "Funcionário editado com sucesso!",
-            content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = Funcionario.class)))
-    @ApiResponse(responseCode = "404", description = "Funcionário não encontrado",
-            content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = MensagemErro.class)))
-    @ApiResponse(responseCode = "400", description = "Requisição inválida",
-            content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = MensagemErro.class)))
+    @Override
     @PatchMapping("/editar/{cpf}")
     public ResponseEntity<Funcionario> editarFuncionario(@PathVariable String cpf, @Valid @RequestBody Funcionario funcionario) {
         return ResponseEntity.ok(funcionarioService.editar(cpf, funcionario));

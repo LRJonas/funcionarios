@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cf25507-94ac-4f24-8645-f4590fc73adf" name="Changes" comment="feat: Microsserviço de funcionários adicionado ao Eureka">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guardioes/funcionarios/exception/ExcecaoManipulador.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guardioes/funcionarios/exception/MensagemErro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guardioes/funcionarios/exceptions/ExcecaoCpfJaCadastrado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guardioes/funcionarios/exceptions/ExcecaoFuncionarioNaoEncontrado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funcionarios.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/funcionarios.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guardioes/funcionarios/service/FuncionarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guardioes/funcionarios/service/FuncionarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/guardioes/funcionarios/service/FuncionarioService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/guardioes/funcionarios/service/FuncionarioService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/guardioes/funcionarios/web/controller/FuncionarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/guardioes/funcionarios/web/controller/FuncionarioController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/guardioes/funcionarios/entity/Funcionario$Cargo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/guardioes/funcionarios/entity/Funcionario$Cargo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/guardioes/funcionarios/entity/Funcionario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/guardioes/funcionarios/entity/Funcionario.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +45,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.FuncionariosApplication.executor": "Run",
-    "git-widget-placeholder": "funcionarios/adicionando-excecoes",
+    "git-widget-placeholder": "funcionarios/testes",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/lucasoff/Downloads/msfuncionarios/funcionarios",
     "node.js.detected.package.eslint": "true",
@@ -109,5 +101,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: Microsserviço de funcionários adicionado ao Eureka" />
     <option name="LAST_COMMIT_MESSAGE" value="feat: Microsserviço de funcionários adicionado ao Eureka" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/funcionarios$java_in_funcionarios.ic" NAME="java in funcionarios Coverage Results" MODIFIED="1717797032929" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>
