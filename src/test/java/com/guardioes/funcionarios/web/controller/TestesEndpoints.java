@@ -1,4 +1,4 @@
-package com.guardioes.funcionarios;
+package com.guardioes.funcionarios.web.controller;
 
 
 import com.guardioes.funcionarios.entity.Funcionario;

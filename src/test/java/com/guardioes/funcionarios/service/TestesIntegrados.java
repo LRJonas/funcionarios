@@ -1,4 +1,4 @@
-package com.guardioes.funcionarios;
+package com.guardioes.funcionarios.service;
 
 import com.guardioes.funcionarios.repository.FuncionarioRepository;
 import org.junit.jupiter.api.BeforeEach;

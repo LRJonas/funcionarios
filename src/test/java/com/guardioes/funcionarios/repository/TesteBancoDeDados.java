@@ -1,4 +1,4 @@
-package com.guardioes.funcionarios;
+package com.guardioes.funcionarios.repository;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
