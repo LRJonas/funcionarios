@@ -32,7 +32,6 @@ class TestesIntegrados {
 
 	@BeforeEach
 	public void setUp() {
-		System.out.println("------------------CHEGOU ATÉ AQUI ---------------");
 		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
 		funcionarioRepository.deleteAll();
 	}
