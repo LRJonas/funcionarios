@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cf25507-94ac-4f24-8645-f4590fc73adf" name="Changes" comment="feat: Microsserviço de funcionários adicionado ao Eureka">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funcionarios.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/funcionarios.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/guardioes/funcionarios/service/FuncionarioService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/guardioes/funcionarios/service/FuncionarioService.class" afterDir="false" />
-    </list>
+    <list default="true" id="4cf25507-94ac-4f24-8645-f4590fc73adf" name="Changes" comment="feat: Microsserviço de funcionários adicionado ao Eureka" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -119,6 +113,7 @@
       <option name="presentableId" value="Default" />
       <updated>1717611174721</updated>
       <workItem from="1717611175939" duration="1247000" />
+      <workItem from="1718052639687" duration="814000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Microsserviço de funcionários adicionado ao Eureka">
       <option name="closed" value="true" />
